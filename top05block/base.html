@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板继承</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .nav {
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background-color: black;
+        }
+        .main {
+            margin-top: 50px;
+        }
+        .menu {
+            width: 20%;
+            height: 100%;
+            position: fixed;
+            background-color: red;
+        }
+        .center {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="nav"></div>
+<div class="main">
+    <div class="menu"></div>
+    <div class="center" >
+       {{block "content" .Name }}{{end}}
+    </div>
+</div>
+
+</body>
+</html>

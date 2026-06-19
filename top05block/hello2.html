@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板继承</title>
+</head>
+<body>
+{{/*继承根模板*/}}
+{{template "base.html" .}}
+{{/*重新定义模板*/}}
+{{define "content"}}
+    <h1>这是hello2页面</h1>
+        <p>欢迎{{.}}</p>
+{{end}}
+
+</body>
+</html>

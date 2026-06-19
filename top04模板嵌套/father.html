@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板嵌套</title>
+</head>
+<body>
+<h1>嵌套模板测试</h1>
+<hr>
+<p>被嵌套的模板</p>
+{{template "son.html"}}
+<hr>
+<p>使用define在此模板中定义的模板</p>
+{{template "demo03.html"}}
+<hr>
+<p>传递的参数</p>
+{{.}}
+</body>
+</html>
+{{define "demo03.html"}}
+    <p>抽烟</p>
+    <p>喝酒</p>
+    <p>烫头</p>
+{{end}}

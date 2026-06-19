@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你好</title>
+</head>
+<body>
+<p>p1</p>
+<p>姓名 {{.p1.Name}}</p>
+<p>年龄 {{.p1.Age}}</p>
+<p>性别 {{.p1.Gender}}</p>
+<p>p2</p>
+<p>姓名 {{.p2.Name}}</p>
+<p>年龄 {{.p2.Age}}</p>
+<p>性别 {{.p2.Gender}}</p>
+
+<hr>
+{{/*$符号可以用来定义变量*/}}
+{{$a := .p1}}
+{{$b := 100}}
+<p>姓名 {{$a.Name}}</p>
+<p>年龄 {{$a.Age}}</p>
+<p>性别 {{$a.Gender}}</p>
+<p>变量b  {{- $b -}}</p>
+
+<hr>
+{{/*选择结构*/}}
+{{$c := .p1.Age}}
+{{if $c}}
+{{$c}}
+{{else}}
+其他的事情
+{{end}}
+
+<hr>
+{{/*使用函数 lt 进行比较*/}}
+{{/*王召的年龄是66小于40*/}}
+{{if lt .p1.Age 40}}
+好好工作
+{{else}}
+好好养老
+{{end}}
+
+<hr>
+{{/*使用range进行遍历*/}}
+{{range $i,$val := .hobby}}
+<p>{{$i}} - {{$val}}</p>
+    {{else}}
+    <p>长度为空的时候执行这里</p>
+{{end}}
+
+<hr>
+{{/*with的作用相当于定义局部局部变量，*var . = .p2*/}}
+{{with .p2 }}
+<p>姓名 {{.Name}}</p>
+<p>年龄 {{.Age}}</p>
+<p>性别 {{.Gender}}</p>
+{{end}}
+
+<hr>
+{{/*使用index函数访问索引值*/}}
+<p>爱好1 {{index .hobby 0 }}</p>
+<p>爱好2 {{index .hobby 1 }}</p>
+
+
+</body>
+</html>
