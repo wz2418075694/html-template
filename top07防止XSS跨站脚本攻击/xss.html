@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>html/tempalte包是已经转义的内容，防止跨站脚本攻击</h1>
+<p>标记s1第一次输入为安全</p>
+{{/*将这个数据标记为安全*/}}
+<p>s1用户第一次输入的内容:{{.s1 | safe}}</p>
+<hr>
+
+<p>s1第二次输入，转义</p>
+<p>s1用户第二次输入的内容:{{.s1}}</p>
+<hr>
+
+<p>s2，标记为安全</p>
+{{/*将这个数据信任*/}}
+<p>s1用户输入的内容:{{.s2 | safe}}</p>
+
+{{/*<script>alert('嘿嘿嘿')</script>*/}}
+</body>
+</html>
